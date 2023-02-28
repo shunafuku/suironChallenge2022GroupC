@@ -104,4 +104,12 @@ HAVING(?size_y < 0.3)
             rdf:rest [rdf:first ?size_z]] .
 ```
 
+```sparql
+#部屋一覧
+PREFIX vh2kg: <http://example.org/virtualhome2kg/ontology/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+select ?room where {
+    ?room rdfs:subClassOf vh2kg:Room .
+}
+```
 
