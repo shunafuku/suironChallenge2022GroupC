@@ -88,3 +88,18 @@ HAVING(?size_y < 0.3)
             rdf:rest [rdf:first ?size_z]] .
 ```
 
+```sparql
+#汚れた床を取得
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX vh2kg: <http://example.org/virtualhome2kg/ontology/>
+PREFIX ex: <http://example.org/virtualhome2kg/instance/>
+select DISTINCT ?riskState where {
+    # 指定のsituationのみにする
+    ?riskState vh2kg:partOf ex:home_situation1_relax_on_sofa_while_watching_television2_scene7 .
+    # floorのStateを取得
+    ?riskState vh2kg:isStateOf [a vh2kg:Floor] .
+    # 汚れた床を取得
+    ?riskState vh2kg:state vh2kg:DIRTY .
+}
+```
+
