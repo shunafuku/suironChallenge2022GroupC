@@ -21,7 +21,7 @@ select DISTINCT ?riskState where {
 ```
 
 ```sparql
-#livingroom にあるオブジェクト一覧
+#livingroom にあるState全取得
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX vh2kg: <http://example.org/virtualhome2kg/ontology/>
 select DISTINCT ?livingroomObject  where { 
