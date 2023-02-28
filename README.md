@@ -47,10 +47,8 @@ select ?mainObject (sum(?numericDuration) as ?sum) where {
 
 ```sparql
 #使用されているAttribute一覧
-PREFIX ex: <http://example.org/virtualhome2kg/instance/>
-PREFIX vh2kg: <http://example.org/virtualhome2kg/ontology/>
-PREFIX vh2kgAction: <http://example.org/virtualhome2kg/ontology/action/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX vh2kg: <http://example.org/virtualhome2kg/ontology/>
 select DISTINCT ?Attribute where {
     ?Attribute rdf:type vh2kg:Attribute.
 	?Object vh2kg:attribute ?Attribute.
