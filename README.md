@@ -24,17 +24,12 @@ select DISTINCT ?riskState where {
 #livingroom にあるオブジェクト一覧
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX vh2kg: <http://example.org/virtualhome2kg/ontology/>
-PREFIX x3do: <https://www.web3d.org/specifications/X3dOntology4.0#>
 select DISTINCT ?livingroomObject  where { 
-    ?Object rdf:type vh2kg:Livingroom .
-    ?State vh2kg:isStateOf ?Object .
-    ?State vh2kg:bbox ?livingRoom.
-    ?livingroomObjectShape vh2kg:inside ?livingRoom .
-    ?livingroomObjectState vh2kg:bbox ?livingroomObjectShape ;
-                           vh2kg:isStateOf ?livingroomObject .
+    ?relationalState1 vh2kg:isStateOf [a vh2kg:Livingroom] .
+    ?livingroomObjectState vh2kg:bbox [vh2kg:inside [vh2kg:isBboxOf ?relationalState1]] .
+    ?livingroomObjectState vh2kg:isStateOf ?livingroomObject .
 }
 ```
-
 
 ```sparql
 #座っている時間を取得するクエリ
