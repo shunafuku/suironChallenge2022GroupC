@@ -33,18 +33,14 @@ select DISTINCT ?livingroomObject  where {
 
 ```sparql
 #座っている時間を取得するクエリ
-PREFIX ho: <http://www.owl-ontologies.com/VirtualHome.owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX : <http://example.org/virtualhome2kg/ontology/>
-PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX ac: <http://example.org/virtualhome2kg/ontology/action/>
 PREFIX vh2kg: <http://example.org/virtualhome2kg/ontology/>
-PREFIX vh2kgAction: <http://example.org/virtualhome2kg/ontology/action/>
+PREFIX ac: <http://example.org/virtualhome2kg/ontology/action/>
+PREFIX time: <http://www.w3.org/2006/time#>
 select ?mainObject (sum(?numericDuration) as ?sum) where { 
-    ?Event vh2kg:action vh2kgAction:sit;
-           vh2kg:time ?Temporal;
-           vh2kg:mainObject ?mainObject.
-    ?Temporal <http://www.w3.org/2006/time#numericDuration> ?numericDuration.
+    ?Event vh2kg:action ac:sit ;
+           vh2kg:mainObject ?mainObject ;
+           vh2kg:time [time:numericDuration ?numericDuration] .
 }GROUP BY ?mainObject
 ```
 
