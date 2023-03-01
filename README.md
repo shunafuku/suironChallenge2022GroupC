@@ -15,8 +15,7 @@ select DISTINCT ?riskState where {
     # 床の上にあるStateを取得
     ?riskState vh2kg:bbox [vh2kg:on [vh2kg:isBboxOf ?relationalState1]] .
     # characterを除外
-    ?riskState vh2kg:isStateOf ?riskObject .
-    MINUS {?riskObject rdf:type vh2kg:Character}.
+    MINUS {?riskState vh2kg:isStateOf [a vh2kg:Character]}.
 }
 ```
 
