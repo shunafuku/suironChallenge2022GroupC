@@ -128,6 +128,6 @@ select DISTINCT ?riskItem where {
     # bedのsizeのy（ベッドの高さ）を取得
     ?riskItem vh2kg:bbox [x3do:bboxSize [rdf:rest [rdf:first ?riskItemValue1 ]]]  .
     # 高さが0.3以上のもののみにする
-    FILTER (?riskItemValue1 > 0.3)
+    FILTER (?riskItemValue1 >= 0.3)
 }
 ```
