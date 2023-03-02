@@ -119,15 +119,16 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX vh2kg: <http://example.org/virtualhome2kg/ontology/>
 PREFIX ex: <http://example.org/virtualhome2kg/instance/>
 PREFIX x3do: <https://www.web3d.org/specifications/X3dOntology4.0#>
-select DISTINCT ?riskItem ?riskItemValue1 where {
+select DISTINCT ?riskItem where {
     # 指定のsituationのみにする
     ?riskItem vh2kg:partOf ex:home_situation1_relax_on_sofa_while_watching_television2_scene7 .
     ?relationalItem1 vh2kg:partOf ex:home_situation1_relax_on_sofa_while_watching_television2_scene7 .
     
     # floorのStateを取得
     ?relationalItem1 vh2kg:isStateOf [a vh2kg:Floor] .
+    # bedのStateを取得
     ?riskItem vh2kg:isStateOf [a vh2kg:Bed] .
-    # sizeのy（高さ）を取得
+    # bedのsizeのy（ベッドの高さ）を取得
     ?riskItem vh2kg:bbox [x3do:bboxSize [rdf:rest [rdf:first ?riskItemValue1 ]]]  .
     # 高さが0.3以上のもののみにする
     FILTER (?riskItemValue1 > 0.3)
