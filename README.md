@@ -122,10 +122,7 @@ PREFIX x3do: <https://www.web3d.org/specifications/X3dOntology4.0#>
 select DISTINCT ?riskItem where {
     # 指定のsituationのみにする
     ?riskItem vh2kg:partOf ex:home_situation1_relax_on_sofa_while_watching_television2_scene7 .
-    ?relationalItem1 vh2kg:partOf ex:home_situation1_relax_on_sofa_while_watching_television2_scene7 .
-    
-    # floorのStateを取得
-    ?relationalItem1 vh2kg:isStateOf [a vh2kg:Floor] .
+
     # bedのStateを取得
     ?riskItem vh2kg:isStateOf [a vh2kg:Bed] .
     # bedのsizeのy（ベッドの高さ）を取得
