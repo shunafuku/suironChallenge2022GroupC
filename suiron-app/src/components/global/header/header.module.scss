@@ -1,4 +1,26 @@
 @use '/src/styles/utils/index.scss' as *;
 
 .wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  padding: 0 20px;
+  background: linear-gradient(92.78deg,#9d284a, #b33e5c, #ca536f);
+
+  .inner {
+    max-width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+
+    .title {
+      font-weight: bold;
+      font-size: 2rem;
+      color: #fff;
+    }
+  }
+
 }

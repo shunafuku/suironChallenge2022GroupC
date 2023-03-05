@@ -1,5 +1,120 @@
 @use '/src/styles/utils/index.scss' as *;
 
 .wrapper {
-  
+  padding: 120px 20px 40px;
+  background: #fff4e1;
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px;
+    background: #fff;
+    box-shadow: 0 0 3px 0 rgb(0 0 0 / 16%);
+
+    h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      text-align: center;
+      color: #333;
+    }
+
+    .image_top {
+      margin-top: 60px;
+      
+      img {
+        width: 100%;
+        border: 1px solid #333;
+      }
+    }
+
+    .intro {
+      margin-top: 80px;
+      font-size: 1.6rem;
+      color: #333;
+    }
+
+    h2 {
+      margin-top: 80px;
+      padding: 20px 30px;
+      border-radius: 3px;
+      border-left: 6px solid #950042;
+      font-size: 2.2rem;
+      font-weight: bold;
+      line-height: 1;
+      color: #333;
+    }
+
+    .lead {
+      margin-top: 80px;
+      font-size: 1.6rem;
+      color: #333;
+    }
+
+    .table {
+      margin: 80px 0 0;
+      box-shadow: 0 4px 20px hsl(0deg 0% 75% / 20%);
+      border-radius: 4px;
+
+      .thead {
+        .tr {
+          display: flex;
+
+          .th_situation {
+            width: 50%;
+            background: #9d284a;
+            padding: 20px 0;
+            font-weight: bold;
+            font-size: 1.4rem;
+            text-align: center;
+            line-height: 1;
+            color: #fff;
+          }
+          
+          .th_resolution {
+            flex-grow: 1;
+            background: #ca536f;
+            border-left: 1px solid #dcdcdc;
+            padding: 20px 0;
+            font-weight: bold;
+            font-size: 1.4rem;
+            text-align: center;
+            line-height: 1;
+            color: #fff;
+          }
+        }
+      }
+
+      .tbody {
+        .tr {
+          display: flex;
+
+          .th {
+            width: 50%;
+            border-left: 1px solid #dcdcdc;
+            padding: 20px 0;
+            font-size: 1.2rem;
+            text-align: center;
+            line-height: 1;
+            color: #333;
+
+            &:first-of-type {
+              border-left: unset;
+            }
+          }
+        }
+      }
+    }
+
+    .comment {
+      margin-top: 80px;
+      font-size: 1.6rem;
+      color: #333;
+    }
+
+    .summary {
+      margin-top: 80px;
+      font-size: 1.6rem;
+      color: #333;
+    }
+  }
 }
