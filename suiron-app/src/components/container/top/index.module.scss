@@ -23,7 +23,7 @@
       
       img {
         width: 100%;
-        border: 1px solid #333;
+        box-shadow: 0 4px 20px hsl(0deg 0% 75% / 20%);
       }
     }
 
@@ -50,8 +50,39 @@
       color: #333;
     }
 
+    .search {
+      position: relative;
+      margin-top: 80px;
+      
+
+      input {
+        padding: 20px 20px 20px 80px;
+        width: 50%;
+        display: inline-block;
+        border-radius: 27px;
+        background: #fff4e1;
+        font-size: 1rem;
+        color: #333;
+        box-shadow: 0 0 3px 0 rgb(0 0 0 / 16%);
+      }
+
+      .icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: #950042;
+        font-size: 2rem;
+        color: #fff4e1;
+      }
+    }
+
     .table {
-      margin: 80px 0 0;
+      margin: 40px 0 0;
       box-shadow: 0 4px 20px hsl(0deg 0% 75% / 20%);
       border-radius: 4px;
 
@@ -90,6 +121,7 @@
 
           .th {
             width: 50%;
+            border-top: 1px solid #dcdcdc;
             border-left: 1px solid #dcdcdc;
             padding: 20px 0;
             font-size: 1.2rem;

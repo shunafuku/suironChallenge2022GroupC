@@ -8,6 +8,7 @@
   height: 80px;
   padding: 0 20px;
   background: linear-gradient(92.78deg,#9d284a, #b33e5c, #ca536f);
+  box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%);
 
   .inner {
     max-width: 1000px;
@@ -22,5 +23,4 @@
       color: #fff;
     }
   }
-
 }

@@ -7,9 +7,6 @@ const header = () => {
         <div className={Style.title}>
           推論チャレンジ2022
         </div>
-        <div className={Style.search}>
-
-        </div>
       </div>
     </header>
   )
