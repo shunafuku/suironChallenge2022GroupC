@@ -10,20 +10,20 @@ type TableList = Array<table>;
 
 const allTableList = [
   {
-    situation: "太郎",
-    resolution: "Japan",
+    situation: "状況1",
+    resolution: "解決策1",
   },
   {
-    situation: "花子",
-    resolution: "Japan",
+    situation: "状況2",
+    resolution: "解決策2",
   },
   {
-    situation: "リチャード",
-    resolution: "Canada",
+    situation: "状況3",
+    resolution: "解決策3",
   },
   {
-    situation: "マイケル",
-    resolution: "USA",
+    situation: "状況4",
+    resolution: "解決策4",
   }
 ];
 
