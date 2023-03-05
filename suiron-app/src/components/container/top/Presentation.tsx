@@ -33,7 +33,7 @@ const Presentation: React.FC<Props> = (props) => {
             テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
           </div>
           <div className={Style.search}>
-            <input type="text" placeholder='危険な状況を検索する' value={props.inputValue} onChange={props.handleChange} />
+            <input type="text" placeholder='検索する' value={props.inputValue} onChange={props.handleChange} />
             <div className={Style.icon}>
               <i className='fas fa-search'></i>
             </div>
