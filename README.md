@@ -11,11 +11,12 @@ select DISTINCT ?riskState where {
     ?riskState vh2kg:partOf ex:home_situation1_relax_on_sofa_while_watching_television2_scene7 .
     ?relationalState1 vh2kg:partOf ex:home_situation1_relax_on_sofa_while_watching_television2_scene7 .
     # floorのStateを取得
-    ?relationalState1 vh2kg:isStateOf [a vh2kg:Floor] .
+    ?relationalState1 vh2kg:isStateOf [rdf:type vh2kg:Floor] .
     # 床の上にあるStateを取得
-    ?riskState vh2kg:bbox [vh2kg:on [vh2kg:isBboxOf ?relationalState1]] .
+  	?relationalState1 vh2kg:bbox ?relationalState1_shape .
+    ?riskState vh2kg:bbox [vh2kg:on ?relationalState1_shape] .
     # characterを除外
-    MINUS {?riskState vh2kg:isStateOf [a vh2kg:Character]}.
+    MINUS {?riskState vh2kg:isStateOf [rdf:type vh2kg:Character]}.
 }
 ```
 
