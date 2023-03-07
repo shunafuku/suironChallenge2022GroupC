@@ -118,8 +118,9 @@
       .tbody {
         .tr {
           display: flex;
-
+          
           .th {
+            position: relative;
             width: 50%;
             border-top: 1px solid #dcdcdc;
             border-left: 1px solid #dcdcdc;
@@ -132,7 +133,48 @@
             &:first-of-type {
               border-left: unset;
             }
+            
+            .reason {
+              position: absolute;
+              top: -55px;
+              left: 50%;
+              transform: translateX(-50%);
+              z-index: 1;
+              background: #545454;
+              padding: 4px 12px;
+              font-size: 1rem;
+              font-weight: bold;
+              line-height: 1.8;
+              animation: fadeIn 0.6s;
+              color: #FFF;
+              border-radius: 3px;
+              filter: drop-shadow(0px 1px 4px #aaa);
+  
+              &::before {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                margin-left: -8px;
+                border: 8px solid transparent;
+                border-top: 8px solid #545454;
+              }
+  
+              &.isOpen {
+                display: block;
+              }
+  
+              &.isClose {
+                display: none;
+              }
+  
+              @keyframes fadeIn {
+                from {opacity: 0;}
+                to {opacity:1 ;}
+              }
+            }
           }
+
         }
       }
     }

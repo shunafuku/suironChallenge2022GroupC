@@ -5,6 +5,9 @@ interface Props {
   inputValue: string;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   tableList: any[];
+  isBalloon: boolean;
+  openBalloon: () => void;
+  closeBalloon: () => void;
 }
 
 const Presentation: React.FC<Props> = (props) => {
@@ -49,7 +52,10 @@ const Presentation: React.FC<Props> = (props) => {
               {props.tableList.map((table, index) => {
                 return (
                   <div key={index} className={Style.tr}>
-                    <div className={Style.th}>{table.situation}</div>
+                    <div className={Style.th} onMouseOver={props.openBalloon} onMouseLeave={props.closeBalloon}>
+                      {table.situation}
+                      {props.isBalloon && (<div className={`${Style.reason}`}>{table.reason}</div>)}
+                    </div>
                     <div className={Style.th}>{table.resolution}</div>
                   </div>
                 );
