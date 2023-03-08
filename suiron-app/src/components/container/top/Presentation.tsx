@@ -5,9 +5,9 @@ interface Props {
   inputValue: string;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   tableList: any[];
-  isBalloon: boolean;
-  openBalloon: () => void;
-  closeBalloon: () => void;
+  // isBalloon: boolean;
+  openBalloon: (index: string) => void;
+  closeBalloon: (index: string) => void;
 }
 
 const Presentation: React.FC<Props> = (props) => {
@@ -28,6 +28,7 @@ const Presentation: React.FC<Props> = (props) => {
           <div className={Style.image_top}>
             <img src="\assets\img\top\top.jpg" alt="" />
           </div>
+          <p className={Style.caption}>引用：<a href="https://challenge.knowledge-graph.jp/2022/">ナレッジグラフ推論チャレンジ【実社会版】2022 〜生活行動における安心・安全を目指して〜</a></p>
           <div className={Style.intro}>
             テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
           </div>
@@ -52,9 +53,9 @@ const Presentation: React.FC<Props> = (props) => {
               {props.tableList.map((table, index) => {
                 return (
                   <div key={index} className={Style.tr}>
-                    <div className={Style.th} onMouseOver={props.openBalloon} onMouseLeave={props.closeBalloon}>
+                    <div className={Style.th} onMouseOver={() => props.openBalloon(String(index))} onMouseLeave={() => props.closeBalloon(String(index))}>
                       {table.situation}
-                      {props.isBalloon && (<div className={`${Style.reason}`}>{table.reason}</div>)}
+                      <div id={String(index)} className={Style.reason}>{table.reason}</div>
                     </div>
                     <div className={Style.th}>{table.resolution}</div>
                   </div>

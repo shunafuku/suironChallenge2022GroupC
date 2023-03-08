@@ -27,6 +27,13 @@
       }
     }
 
+    .caption {
+      margin-top: 10px;
+      font-size: 1rem;
+      text-align: right;
+      color: #999;
+    }
+
     .intro {
       margin-top: 80px;
       font-size: 1.6rem;
@@ -136,6 +143,7 @@
             
             .reason {
               position: absolute;
+              visibility: hidden;
               top: -55px;
               left: 50%;
               transform: translateX(-50%);
@@ -159,15 +167,7 @@
                 border: 8px solid transparent;
                 border-top: 8px solid #545454;
               }
-  
-              &.isOpen {
-                display: block;
-              }
-  
-              &.isClose {
-                display: none;
-              }
-  
+
               @keyframes fadeIn {
                 from {opacity: 0;}
                 to {opacity:1 ;}

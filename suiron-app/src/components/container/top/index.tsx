@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Presentation from './Presentation'
 
 type table = {
@@ -32,13 +32,26 @@ const allTableList = [
 ];
 
 const TopContainer = () => {
-  const [isBalloon, setIsBalloon] = useState(false);
-  const openBalloon = () => {
-    setIsBalloon(true);
+  const openBalloon = (index) => {
+    const target = document.getElementById(String(index));
+    if(target == null) {
+      return;
+    } 
+    else {
+      target.style.visibility = "visible";
+    }
   }
-  const closeBalloon = () => {
-    setIsBalloon(false);
+  const closeBalloon = (index) => {
+    const target = document.getElementById(String(index));
+    if(target == null) {
+      return;
+    } 
+    else {
+      target.style.visibility = "hidden";
+    }
   }
+
+
   
   const [inputValue, setInputValue] = useState("");
   const [tableList, setTableList] = useState<TableList>(allTableList);
@@ -69,7 +82,7 @@ const TopContainer = () => {
       inputValue={inputValue} 
       handleChange={handleChange} 
       tableList={tableList}
-      isBalloon={isBalloon}
+      // isBalloon={isBalloon}
       openBalloon={openBalloon}
       closeBalloon={closeBalloon}
     />
