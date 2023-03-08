@@ -32,7 +32,7 @@ const allTableList = [
 ];
 
 const TopContainer = () => {
-  const openBalloon = (index) => {
+  const openBalloon = (index: string) => {
     const target = document.getElementById(String(index));
     if(target == null) {
       return;
@@ -41,7 +41,7 @@ const TopContainer = () => {
       target.style.visibility = "visible";
     }
   }
-  const closeBalloon = (index) => {
+  const closeBalloon = (index: string) => {
     const target = document.getElementById(String(index));
     if(target == null) {
       return;
