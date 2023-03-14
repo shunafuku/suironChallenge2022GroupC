@@ -1,36 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Presentation from './Presentation'
+import Query from './query'
 
 type table = {
-  object: string;
-  resolution: string;
+  factor: string;
   reason: string;
+  solution: string;
 };
 
 type TableList = Array<table>;
 
-const allTableList = [
+let allTableList = [
   {
-    object: "オブジェクト1",
-    resolution: "解決策1",
-    reason: "理由1",
+    factor: "太郎",
+    reason: "Japan",
+    solution: "焼肉"
   },
-  {
-    object: "オブジェクト2",
-    resolution: "解決策2",
-    reason: "理由2",
-  },
-  {
-    object: "オブジェクト3",
-    resolution: "解決策3",
-    reason: "理由3",
-  },
-  {
-    object: "オブジェクト4",
-    resolution: "解決策4",
-    reason: "理由4",
-  }
 ];
+
 
 const TopContainer = () => {
   const openBalloon = (index: string) => {
@@ -42,6 +29,7 @@ const TopContainer = () => {
       target.style.visibility = "visible";
     }
   }
+
   const closeBalloon = (index: string) => {
     const target = document.getElementById(String(index));
     if(target == null) {
@@ -51,27 +39,33 @@ const TopContainer = () => {
       target.style.visibility = "hidden";
     }
   }
-  
-  const [inputValue, setInputValue] = useState("");
-  const [tableList, setTableList] = useState<TableList>(allTableList);
+
+  const [list, setList] = useState<TableList>(allTableList);
+  const [tableList, setTableList] = useState<TableList>(list);
+
+  useEffect(()=> {
+    Query().then((result) => {setList(result), setTableList(result)});
+  }, []);
   
   const search = (searchText: string) => {
     if (searchText !== "") {
-      const filteredData = Object.entries(allTableList)
-    .filter(([, value]) => value.object.includes(searchText))
-    .map(([, value]) => value);
+      const filteredData = Object.entries(tableList)
+      .filter(([, value]) => value.factor.includes(searchText))
+      .map(([, value]) => value);
       setTableList(filteredData);
       return;
     }
-  
-    setTableList(allTableList);
+    
+    setTableList(list);
     return;
   };
   
+  const [inputValue, setInputValue] = useState("");
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
     search(e.target.value);
   };
+
 
   return (
     <Presentation

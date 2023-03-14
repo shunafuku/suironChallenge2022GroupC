@@ -31,9 +31,9 @@ const Presentation: React.FC<Props> = (props) => {
           <div className={Style.intro}>
             テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
           </div>
-          <h2>危険なオブジェクトと解決策</h2>
+          <h2>状況に応じた危険なオブジェクトと解決策</h2>
           <div className={Style.lead}>
-            テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+            以下の表は、特定の状況で危険になり得るオブジェクト、
           </div>
           <div className={Style.search}>
             <input type="text" placeholder='検索する' value={props.inputValue} onChange={props.handleChange} />
@@ -53,10 +53,10 @@ const Presentation: React.FC<Props> = (props) => {
                 return (
                   <div key={index} className={Style.tr}>
                     <div className={Style.th} onMouseOver={() => props.openBalloon(String(index))} onMouseLeave={() => props.closeBalloon(String(index))}>
-                      {table.object}
+                      {table.factor}
                       <div id={String(index)} className={Style.reason}>{table.reason}</div>
                     </div>
-                    <div className={Style.th}>{table.resolution}</div>
+                    <div className={Style.th}>{table.solution}</div>
                   </div>
                 );
               })}
