@@ -5,7 +5,6 @@ interface Props {
   inputValue: string;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   tableList: any[];
-  // isBalloon: boolean;
   openBalloon: (index: string) => void;
   closeBalloon: (index: string) => void;
 }
@@ -32,7 +31,7 @@ const Presentation: React.FC<Props> = (props) => {
           <div className={Style.intro}>
             テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
           </div>
-          <h2>危険な状況と解決策</h2>
+          <h2>危険なオブジェクトと解決策</h2>
           <div className={Style.lead}>
             テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
           </div>
@@ -45,7 +44,7 @@ const Presentation: React.FC<Props> = (props) => {
           <div className={Style.table}>
             <div className={Style.thead}>
               <div className={Style.tr}>
-                <div className={Style.th_situation}>危険な状況</div>
+                <div className={Style.th_situation}>危険なオブジェクト</div>
                 <div className={Style.th_resolution}>解決策</div>
               </div>
             </div>
@@ -54,7 +53,7 @@ const Presentation: React.FC<Props> = (props) => {
                 return (
                   <div key={index} className={Style.tr}>
                     <div className={Style.th} onMouseOver={() => props.openBalloon(String(index))} onMouseLeave={() => props.closeBalloon(String(index))}>
-                      {table.situation}
+                      {table.object}
                       <div id={String(index)} className={Style.reason}>{table.reason}</div>
                     </div>
                     <div className={Style.th}>{table.resolution}</div>

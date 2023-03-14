@@ -2,30 +2,31 @@ import React, { useState } from "react";
 import Presentation from './Presentation'
 
 type table = {
-  situation: string;
+  object: string;
   resolution: string;
+  reason: string;
 };
 
 type TableList = Array<table>;
 
 const allTableList = [
   {
-    situation: "状況1",
+    object: "オブジェクト1",
     resolution: "解決策1",
     reason: "理由1",
   },
   {
-    situation: "状況2",
+    object: "オブジェクト2",
     resolution: "解決策2",
     reason: "理由2",
   },
   {
-    situation: "状況3",
+    object: "オブジェクト3",
     resolution: "解決策3",
     reason: "理由3",
   },
   {
-    situation: "状況4",
+    object: "オブジェクト4",
     resolution: "解決策4",
     reason: "理由4",
   }
@@ -50,21 +51,16 @@ const TopContainer = () => {
       target.style.visibility = "hidden";
     }
   }
-
-
   
   const [inputValue, setInputValue] = useState("");
   const [tableList, setTableList] = useState<TableList>(allTableList);
   
-  const search = (value: string) => {
-    if (value !== "") {
-      const filteredList = allTableList.filter((table: table) =>
-        Object.values(table).some(
-          (item: string) =>
-            item?.toUpperCase().indexOf(value.trim().toUpperCase()) !== -1
-        )
-      );
-      setTableList(filteredList);
+  const search = (searchText: string) => {
+    if (searchText !== "") {
+      const filteredData = Object.entries(allTableList)
+    .filter(([, value]) => value.object.includes(searchText))
+    .map(([, value]) => value);
+      setTableList(filteredData);
       return;
     }
   
@@ -82,7 +78,6 @@ const TopContainer = () => {
       inputValue={inputValue} 
       handleChange={handleChange} 
       tableList={tableList}
-      // isBalloon={isBalloon}
       openBalloon={openBalloon}
       closeBalloon={closeBalloon}
     />
