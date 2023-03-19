@@ -5,6 +5,7 @@
 
 ### 公開データで結果を再現するための手順
 以下のサイトにアクセス
-[サイト](https://suiron-challenge2022-group-c.vercel.app/){:target="_blank"}
+
+<https://suiron-challenge2022-group-c.vercel.app/>
 
 ### 未公開データでシステムを検証するための手順
