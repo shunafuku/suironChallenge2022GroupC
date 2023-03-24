@@ -20,61 +20,6 @@ let allTableList = [
       "factor": "clothespile108",
       "reason": "転倒の危険がある",
       "solution": "移動させる"
-  },
-  {
-      "factor": "floor60",
-      "reason": "転倒の危険がある",
-      "solution": "掃除する"
-  },
-  {
-      "factor": "floor204",
-      "reason": "転倒の危険がある",
-      "solution": "掃除する"
-  },
-  {
-      "factor": "floor208",
-      "reason": "転倒の危険がある",
-      "solution": "掃除する"
-  },
-  {
-      "factor": "floor308",
-      "reason": "転倒の危険がある",
-      "solution": "掃除する"
-  },
-  {
-      "factor": "floor207",
-      "reason": "転倒の危険がある",
-      "solution": "掃除する"
-  },
-  {
-      "factor": "floor57",
-      "reason": "転倒の危険がある",
-      "solution": "掃除する"
-  },
-  {
-      "factor": "floor21",
-      "reason": "転倒の危険がある",
-      "solution": "掃除する"
-  },
-  {
-      "factor": "floor203",
-      "reason": "転倒の危険がある",
-      "solution": "掃除する"
-  },
-  {
-      "factor": "floor305",
-      "reason": "転倒の危険がある",
-      "solution": "掃除する"
-  },
-  {
-      "factor": "floor22",
-      "reason": "転倒の危険がある",
-      "solution": "掃除する"
-  },
-  {
-      "factor": "bed321",
-      "reason": "転落の危険がある",
-      "solution": "転落時の衝撃を緩和するため、低床のベッドにする"
   }
 ];
 
