@@ -155,8 +155,7 @@ export const sendSparqlQuery = async (endpointUrl, sparqlQuery) => {
   );
 };
 
-async function riskDetection(riskSituation, situationUri) {
-  const endpointUrl = "http://kozaki-lab.osakac.ac.jp/agraph/kgrc4si";
+async function riskDetection(riskSituation, situationUri, endpointUrl) {
   const sparqlQuery =
     `PREFIX vh2kg: <http://example.org/virtualhome2kg/ontology/>
 PREFIX x3do: <https://www.web3d.org/specifications/X3dOntology4.0#>
@@ -181,8 +180,8 @@ const extractObjectName = (URI) => {
   return objectName;
 };
 
-async function hoge(riskSituation, riskName, situationUri) {
-  let results = await riskDetection(riskSituation, situationUri);
+async function hoge(riskSituation, riskName, situationUri, endpointUrl) {
+  let results = await riskDetection(riskSituation, situationUri, endpointUrl);
   return results.map((y) => {
     return {
       factor: extractObjectName(y),
@@ -192,14 +191,13 @@ async function hoge(riskSituation, riskName, situationUri) {
   });
 }
 
-export default async function main() {
-  const situationUri =
-    "ex:home_situation0_relax_on_sofa_while_watching_television2_scene7";
+export default async function main(situationUri =
+  "ex:home_situation0_relax_on_sofa_while_watching_television2_scene7", endpointUrl = "http://kozaki-lab.osakac.ac.jp/agraph/kgrc4si") {
   
   const result = await Promise.all(
     Object.keys(risks).map((riskName) => {
       const riskSituation = risks[riskName];
-      return hoge(riskSituation, riskName, situationUri)
+      return hoge(riskSituation, riskName, situationUri, endpointUrl)
     })
   ).then((x) => x.flat());
   return result;
