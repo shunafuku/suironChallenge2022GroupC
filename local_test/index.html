@@ -6,8 +6,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="./query.js"></script>
+    <script>
+      async function localTest() {
+        const situationUri = document.getElementById("situationUri").value;
+        const endpointUrl = document.getElementById("endpointUrl").value;
+        const resultArray = await main(situationUri, endpointUrl);
+        document.getElementById("currentSituation").innerHTML = situationUri;
+        //table
+        const tableHtml = resultArray
+          .map((x) => {
+            return (
+              "<tr>" +
+              "<td>" +
+              x.factor +
+              "</td>" +
+              "<td>" +
+              x.reason +
+              "</td>" +
+              "<td>" +
+              x.solution +
+              "</td>" +
+              "</tr>"
+            );
+          })
+          .join("");
+        document.getElementById("resultTableBody").innerHTML = tableHtml;
+      }
+    </script>
+    <style>
+      input {
+        width: 40rem;
+      }
+      th {
+        border-left: 1px solid #333;
+        border-bottom: 1px solid #333;
+      }
+      td {
+        text-align: center;
+        border-left: 1px solid #333;
+      }
+    </style>
   </head>
   <body>
-    <button onclick="main()">実行</button>
+    <div>
+      <label for="situationUri">situationUri:</label>
+      <input
+        type="text"
+        name="situationUri"
+        id="situationUri"
+        value="ex:home_situation0_relax_on_sofa_while_watching_television2_scene7"
+      />
+    </div>
+    <div>
+      <label for="endpointUrl">endpointUrl:</label>
+      <input
+        type="text"
+        name="endpointUrl"
+        id="endpointUrl"
+        value="http://kozaki-lab.osakac.ac.jp/agraph/kgrc4si"
+      />
+    </div>
+
+    <button onclick="localTest()">実行</button>
+    <div>
+      <h3 id="currentSituation"></h3>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>factor</th>
+          <th>reason</th>
+          <th>solution</th>
+        </tr>
+      </thead>
+      <tbody id="resultTableBody"></tbody>
+    </table>
   </body>
 </html>
