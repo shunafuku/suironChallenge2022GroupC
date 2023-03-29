@@ -75,6 +75,7 @@ const TopContainer = () => {
 
   const [situationUri, setSituationUri] = useState("");
   const [endPointUrl, setEndPointUrl] = useState("");
+  const [currentSituationUri, setCurrentSituationUri] = useState("");
 
   const situationUriHandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSituationUri(e.target.value);
@@ -96,12 +97,11 @@ const TopContainer = () => {
       setEndPointUrl(String(endPointValue));
     }
     clickSearch(situationUri, endPointUrl);
+    setCurrentSituationUri(situationUri)
   }
 
   const clickSearch = (situationUri: string, endPointUrl: string) => {
-    createSparql(undefined, situationUri)
-    sendSparqlQuery(endPointUrl, undefined)
-    Query().then((result) => {setList(result), setTableList(result)});
+    Query(situationUri, endPointUrl).then((result) => {setList(result), setTableList(result)});
   };
 
   return (
@@ -109,6 +109,7 @@ const TopContainer = () => {
       inputValue={inputValue} 
       searchHandleChange={searchHandleChange}
       situationUri={situationUri} 
+      currentSituationUri={currentSituationUri}
       endPointUrl={endPointUrl}
       situationUriHandleChange={situationUriHandleChange}
       endPointUrlHandleChange={endPointUrlHandleChange}

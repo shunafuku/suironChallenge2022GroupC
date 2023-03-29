@@ -1,30 +1,3 @@
-function dummy(situationUri, endpointUrl){
-  if(situationUri == "1"){
-    return   [{
-      "factor": "rug47",
-      "reason": "転倒の危険がある",
-      "solution": "移動させる"
-  }]
-  }else if(situationUri == "2"){
-return   [{
-  "factor": "clothespile108",
-  "reason": "転倒の危険がある",
-  "solution": "移動させる"
-}]
-  }else { 
-    return   [{
-      "factor": "rug47",
-      "reason": "転倒の危険がある",
-      "solution": "移動させる"
-  },
-  {
-      "factor": "clothespile108",
-      "reason": "転倒の危険がある",
-      "solution": "移動させる"
-  }]
-  }
-}
-
 const risks = {
   "床に0.4m以下のオブジェクトがある": {
     riskState: {
