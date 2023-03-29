@@ -7,6 +7,9 @@
 以下のサイトにアクセス
 <https://suiron-challenge2022-group-c.vercel.app/>
 
+試したいsparqlendpointがない場合には、http://kozaki-lab.osakac.ac.jp/agraph/kgrc4siを使っていただければ動作します。（2023/3/30現在）
+
+
 ※利用するエンドポイントが"http:"の場合、ブラウザによってブロックされます。以下の方法で設定を変更すると利用できますが、セキュリティ上の問題があるため、自己責任でお願いいたします。
 
 
