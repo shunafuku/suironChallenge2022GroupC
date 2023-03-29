@@ -3,7 +3,12 @@ import Style from './index.module.scss'
 
 interface Props {
   inputValue: string;
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  searchHandleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  situationUri: string;
+  endPointUrl: string;
+  situationUriHandleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  endPointUrlHandleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   tableList: any[];
   openBalloon: (index: string) => void;
   closeBalloon: (index: string) => void;
@@ -35,12 +40,27 @@ const Presentation: React.FC<Props> = (props) => {
           <div className={Style.lead}>
             以下の表は、特定の状況で危険になり得るオブジェクト、
           </div>
-          <div className={Style.search}>
-            <input type="text" placeholder='検索する' value={props.inputValue} onChange={props.handleChange} />
-            <div className={Style.icon}>
-              <i className='fas fa-search'></i>
+          <form className={Style.formWrapper} onSubmit={props.handleSubmit}>
+            <div className={Style.queryWrapper}>
+              <div className={Style.situation}>
+                <label>situationUri</label>
+                <input type="text" name='situation' placeholder='situationのuriを入力' value={props.situationUri} onChange={props.situationUriHandleChange}/>
+              </div>
+              <div className={Style.endPoint}>
+                <label>endPointUrl</label>
+                <input type="text" name='endPoint' placeholder='endPointのurlを入力' value={props.endPointUrl} onChange={props.endPointUrlHandleChange}/>
+              </div>
+              <button className={Style.submit} type="submit">
+                <p>検索</p>
+              </button>
             </div>
-          </div>
+            <div className={Style.search}>
+              <label>状況から危険なオブジェクトと解決策を出力</label>
+              <div className={Style.inputWrapper}>
+                <input type="text" placeholder='状況を検索する' value={props.inputValue} onChange={props.searchHandleChange} />
+              </div>
+            </div>
+          </form>
           <div className={Style.table}>
             <div className={Style.thead}>
               <div className={Style.tr}>
@@ -61,9 +81,6 @@ const Presentation: React.FC<Props> = (props) => {
                 );
               })}
             </div>
-          </div>
-          <div className={Style.comment}>
-            テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
           </div>
           <h2>まとめ</h2>
           <div className={Style.summary}>

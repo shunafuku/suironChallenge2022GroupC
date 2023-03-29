@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Presentation from './Presentation'
-import Query from './query.js'
+import Query, {createSparql, sendSparqlQuery} from './query.js'
 
 type table = {
   factor: string;
@@ -45,6 +45,7 @@ const TopContainer = () => {
     }
   }
 
+
   const [list, setList] = useState<TableList>(allTableList);
   const [tableList, setTableList] = useState<TableList>(list);
 
@@ -66,16 +67,52 @@ const TopContainer = () => {
   };
   
   const [inputValue, setInputValue] = useState("");
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const searchHandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
     search(e.target.value);
   };
 
 
+  const [situationUri, setSituationUri] = useState("");
+  const [endPointUrl, setEndPointUrl] = useState("");
+
+  const situationUriHandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSituationUri(e.target.value);
+  };
+
+  const endPointUrlHandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEndPointUrl(e.target.value);
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    const situationValue = data.get('situation');
+    if (situationValue != null) {
+      setSituationUri(String(situationValue));
+    }
+    const endPointValue = data.get('endPoint');
+    if (endPointValue != null) {
+      setEndPointUrl(String(endPointValue));
+    }
+    clickSearch(situationUri, endPointUrl);
+  }
+
+  const clickSearch = (situationUri: string, endPointUrl: string) => {
+    createSparql(undefined, situationUri)
+    sendSparqlQuery(endPointUrl, undefined)
+    Query().then((result) => {setList(result), setTableList(result)});
+  };
+
   return (
     <Presentation
       inputValue={inputValue} 
-      handleChange={handleChange} 
+      searchHandleChange={searchHandleChange}
+      situationUri={situationUri} 
+      endPointUrl={endPointUrl}
+      situationUriHandleChange={situationUriHandleChange}
+      endPointUrlHandleChange={endPointUrlHandleChange}
+      handleSubmit={handleSubmit}
       tableList={tableList}
       openBalloon={openBalloon}
       closeBalloon={closeBalloon}

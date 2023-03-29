@@ -90,7 +90,7 @@ function state(stateName, stateType) {
   return stateNameVar + " vh2kg:state vh2kg:" + stateType + ".";
 }
 
-const createSparql = (states, situationUri) => {
+export const createSparql = (states, situationUri) => {
   let sparqlQuery = "";
 
   Object.keys(states).map((stateName) => {
@@ -117,7 +117,7 @@ const createSparql = (states, situationUri) => {
   return sparqlQuery;
 };
 
-const sendSparqlQuery = async (endpointUrl, sparqlQuery) => {
+export const sendSparqlQuery = async (endpointUrl, sparqlQuery) => {
   const fullUrl =
     endpointUrl + "?query=" + encodeURIComponent(sparqlQuery);
   const headers = {
@@ -168,6 +168,7 @@ async function hoge(riskSituation, riskName, situationUri) {
 export default async function main() {
   const situationUri =
     "ex:home_situation0_relax_on_sofa_while_watching_television2_scene7";
+  
   const result = await Promise.all(
     Object.keys(risks).map((riskName) => {
       const riskSituation = risks[riskName];

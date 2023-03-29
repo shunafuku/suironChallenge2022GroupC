@@ -32,6 +32,12 @@
       font-size: 1rem;
       text-align: right;
       color: #999;
+
+      a {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
 
     .intro {
@@ -58,39 +64,126 @@
       color: #333;
     }
 
-    .search {
-      position: relative;
-      margin-top: 80px;
-      
+    .formWrapper {
+      margin-top: 40px;
+      display: flex;
+      align-items: flex-start;
+      gap: 30px;
 
-      input {
-        padding: 20px 20px 20px 80px;
+      .queryWrapper {
         width: 50%;
-        display: inline-block;
-        border-radius: 27px;
+        padding: 20px;
         background: #fff4e1;
-        font-size: 1rem;
-        color: #333;
-        box-shadow: 0 0 3px 0 rgb(0 0 0 / 16%);
-      }
+        box-shadow: 0 0 3px 0 rgb(0 0 0 / 25%);
 
-      .icon {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        aspect-ratio: 1 / 1;
-        border-radius: 50%;
-        display: grid;
-        place-items: center;
-        background: #950042;
-        font-size: 2rem;
-        color: #fff4e1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .situation {
+          label {
+            font-size: 1.2rem;
+            line-height: 1.4;
+            color: #333;
+          }
+  
+          input {
+            padding: 20px;
+            width: 100%;
+            display: block;
+            background: #fff;
+            font-size: 1rem;
+            color: #333;
+            box-shadow: 0 0 3px 0 rgb(0 0 0 / 25%);
+          }
+        }
+  
+        .endPoint {
+          label {
+            font-size: 1.2rem;
+            line-height: 1.4;
+            color: #333;
+          }
+  
+          input {
+            padding: 20px;
+            width: 100%;
+            display: block;
+            background: #fff;
+            font-size: 1rem;
+            color: #333;
+            box-shadow: 0 0 3px 0 rgb(0 0 0 / 25%);
+          }
+        }
+
+        .query {
+          label {
+            font-size: 1.2rem;
+            line-height: 1.4;
+            color: #333;
+          }
+
+          textarea {
+            padding: 20px;
+            width: 100%;
+            display: block;
+            background: #fff;
+            font-size: 1rem;
+            color: #333;
+            box-shadow: 0 0 3px 0 rgb(0 0 0 / 25%);
+          }
+        }
+
+        .submit {
+          cursor: pointer;
+
+          p {
+            width: fit-content;
+            padding: 10px 20px;
+            background: #9d284a;
+            font-weight: bold;
+            font-size: 1rem;
+            line-height: 1;
+            color: #fff;
+            transition: 0.3s ease;
+
+            &:hover {
+              background: #ca536f;
+            }
+          }
+        }
+      }
+      
+      
+      .search {
+        width: 50%;
+        padding: 20px;
+        background: #fff4e1;
+        box-shadow: 0 0 3px 0 rgb(0 0 0 / 25%);
+
+        label {
+          font-size: 1.2rem;
+          line-height: 1.4;
+          color: #333;
+        }
+        
+        .inputWrapper {
+          input {
+            padding: 20px;
+            width: 100%;
+            display: inline-block;
+            background: #fff;
+            font-size: 1rem;
+            color: #333;
+            box-shadow: 0 0 3px 0 rgb(0 0 0 / 25%);
+          }
+        }
       }
     }
 
+
     .table {
-      margin: 40px 0 0;
+      margin: 60px 0 0;
       box-shadow: 0 4px 20px hsl(0deg 0% 75% / 20%);
       border-radius: 4px;
 
@@ -173,12 +266,6 @@
 
         }
       }
-    }
-
-    .comment {
-      margin-top: 80px;
-      font-size: 1.6rem;
-      color: #333;
     }
 
     .summary {
