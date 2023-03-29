@@ -90,7 +90,7 @@ function state(stateName, stateType) {
   return stateNameVar + " vh2kg:state vh2kg:" + stateType + ".";
 }
 
-export const createSparql = (states, situationUri) => {
+const createSparql = (states, situationUri) => {
   let sparqlQuery = "";
 
   Object.keys(states).map((stateName) => {
@@ -117,7 +117,7 @@ export const createSparql = (states, situationUri) => {
   return sparqlQuery;
 };
 
-export const sendSparqlQuery = async (endpointUrl, sparqlQuery) => {
+const sendSparqlQuery = async (endpointUrl, sparqlQuery) => {
   const fullUrl =
     endpointUrl + "?query=" + encodeURIComponent(sparqlQuery);
   const headers = {
