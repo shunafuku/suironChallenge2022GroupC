@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Presentation from './Presentation'
+import Query from './query.js'
 
 type table = {
   factor: string;
