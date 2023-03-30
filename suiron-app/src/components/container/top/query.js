@@ -165,7 +165,7 @@ async function hoge(riskSituation, riskName, situationUri, endpointUrl) {
 }
 
 export default async function main(situationUri =
-  "ex:home_situation0_relax_on_sofa_while_watching_television2_scene7", endpointUrl = "http://kozaki-lab.osakac.ac.jp/agraph/kgrc4si") {
+  "ex:home_situation0_relax_on_sofa_while_watching_television2_scene7", endpointUrl = "https://lod.hozo.jp/kz-agraph/kgrc4si") {
   
   const result = await Promise.all(
     Object.keys(risks).map((riskName) => {
