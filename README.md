@@ -26,3 +26,5 @@
 fusekiでsparqlエンドポイントを立ち上げ、実行した例
 ![image](https://user-images.githubusercontent.com/74655911/228607515-c67c2012-bac2-4700-8354-b9b778876f05.png)
 
+### 定義した危険な状況
+[googleSpreadsheets](https://docs.google.com/spreadsheets/d/1v4EIhi18k6JpkD8M4cbDywhjBdeKdNtgHh_xbpe7oMo/edit?usp=sharing)
